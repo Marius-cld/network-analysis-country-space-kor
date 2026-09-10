@@ -1,0 +1,11 @@
+.DS_Store
+.Rhistory
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# Régénérables ; les images "clés" déjà commitées dans figure/ restent
+# suivies telles quelles (gitignore n'affecte pas les fichiers déjà commités).
+figure/
+table/
+.venv/
+venv/

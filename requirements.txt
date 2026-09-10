@@ -1,0 +1,9 @@
+pandas
+numpy
+scipy
+statsmodels
+networkx
+matplotlib
+python-louvain
+openpyxl
+jupyter
