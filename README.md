@@ -81,7 +81,7 @@ Le **Country Space** est un réseau de similarité entre pays, construit à part
 ## Reproduire l'analyse
 
 ```bash
-git clone https://github.com/Marius-cld/Network-Analysis.git
+git clone https://github.com/Marius-cld/Network-Analysis-Country-Space-KOR.git
 cd Network-Analysis
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
