@@ -1,6 +1,6 @@
 # Analyse de réseaux — Country Space (2008 vs 1998)
 
-> **English summary** — Social network analysis of the *Country Space* (a country-similarity network built from export product baskets — economic-complexity data). Built with Python / NetworkX for a graduate "Network Analysis" course. Covers descriptive network statistics, degree/strength distributions, four centrality measures, small-world index (Neal, 2017), a Louvain community detection, a robustness analysis via the Fiedler value and minimum spanning tree, a **MRQAP** regression comparing the 2008 and 1998 networks, and a deep-dive on South Korea's position in the network. See the [full notebook](notebook/network-analysis-country-space.ipynb) and the [key results](#résultats-clés) below.
+> **English summary** — Social network analysis of the *Country Space* (a country-similarity network built from export product baskets — economic-complexity data). Built with Python / NetworkX for a graduate "Network Analysis" course. Covers descriptive network statistics, degree/strength distributions, four centrality measures, small-world index (Neal, 2017), a Louvain community detection, a robustness analysis via the Fiedler value and minimum spanning tree, a **MRQAP** regression comparing the 2008 and 1998 networks, and a deep-dive on South Korea's position in the network. See the [full notebook](notebooks/network-analysis-country-space.ipynb) and the [key results](#résultats-clés) below.
 
 Projet réalisé dans le cadre d'un devoir universitaire d'**Analyse de réseaux** (Master). L'énoncé ([docs/Devoir Analyse de Réseau.pdf](<docs/Devoir Analyse de Réseau.pdf>)) demandait d'étudier le réseau attribué dans son ensemble, puis la position d'un pays donné (ici la **Corée du Sud**) au sein de ce réseau — ce README et le notebook suivent cette même structure en deux parties.
 
@@ -63,11 +63,11 @@ Le **Country Space** est un réseau de similarité entre pays, construit à part
 
 | Réseau mondial 2008 (pondéré) | Corée du Sud en évidence, arbre couvrant minimal |
 |---|---|
-| ![Réseau mondial 2008](figure/reseau_monde_2008.png) | ![Arbre couvrant minimal](figure/spanning_tree.png) |
+| ![Réseau mondial 2008](figures/reseau_monde_2008.png) | ![Arbre couvrant minimal](figures/spanning_tree.png) |
 
 | Distribution des degrés | Réseau de la Corée (voisinage) |
 |---|---|
-| ![Distribution des degrés](figure/degree_hist.png) | ![Réseau de la Corée](figure/reseau_coree_2008.png) |
+| ![Distribution des degrés](figures/degree_hist.png) | ![Réseau de la Corée](figures/reseau_coree_2008.png) |
 
 ## Stack technique
 
@@ -85,25 +85,25 @@ git clone https://github.com/Marius-cld/Network-Analysis-Country-Space-KOR.git
 cd Network-Analysis
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-jupyter notebook notebook/network-analysis-country-space.ipynb
+jupyter notebook notebooks/network-analysis-country-space.ipynb
 # ou, de façon équivalente :
 python src/network-analysis-country-space.py
 ```
 
-Les chemins (`data/`, `figure/`, `table/`) sont résolus depuis l'emplacement du notebook/script, quel que soit le répertoire de travail au lancement.
+Les chemins (`data/`, `figures/`, `tables/`) sont résolus depuis l'emplacement du notebook/script, quel que soit le répertoire de travail au lancement.
 
 ## Structure du dépôt
 
 ```
 Network-Analysis/
-├── notebook/
+├── notebooks/
 │   └── network-analysis-country-space.ipynb   # Notebook principal, narratif
 ├── src/
 │   ├── network-analysis-country-space.py      # Équivalent script de l'analyse
 │   └── libs/                # Librairie mrqap-python vendorisée (régression QAP)
 ├── data/                    # Matrices de similarité Country Space (2008 / 1998)
-├── figure/                  # Graphiques générés — quelques images clés suivies, le reste gitignoré
-├── table/                   # Tableaux de résultats générés (centralités, MRQAP, clusters...) — gitignoré
+├── figures/                 # Graphiques générés — quelques images clés suivies, le reste gitignoré
+├── tables/                  # Tableaux de résultats générés (centralités, MRQAP, clusters...) — gitignoré
 ├── docs/
 │   ├── Devoir Analyse de Réseau.pdf   # Énoncé du devoir
 │   └── Network Analysis.pdf           # Export PDF complet du notebook exécuté

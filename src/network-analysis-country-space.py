@@ -4,7 +4,7 @@ degré/force, centralités, indice petit-monde (Neal, 2017), comparaison
 2008/1998 par régression MRQAP, robustesse (valeur de Fiedler, arbre couvrant
 minimal), et position de la Corée du Sud dans le réseau.
 
-Doit être lancé avec `data/`, `figure/` et `table/` accessibles à la racine
+Doit être lancé avec `data/`, `figures/` et `tables/` accessibles à la racine
 du dépôt (chemins résolus depuis l'emplacement de ce script).
 """
 
@@ -21,8 +21,8 @@ from libs.mrqap import MRQAP
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT_DIR / "data"
-FIGURE_DIR = ROOT_DIR / "figure"
-TABLE_DIR = ROOT_DIR / "table"
+FIGURE_DIR = ROOT_DIR / "figures"
+TABLE_DIR = ROOT_DIR / "tables"
 
 
 ### Chargement des données ###

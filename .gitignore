@@ -3,9 +3,9 @@
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
-# Régénérables ; les images "clés" déjà commitées dans figure/ restent
+# Régénérables ; les images "clés" déjà commitées dans figures/ restent
 # suivies telles quelles (gitignore n'affecte pas les fichiers déjà commités).
-figure/
-table/
+figures/
+tables/
 .venv/
 venv/
