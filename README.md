@@ -1,8 +1,8 @@
 # Analyse de réseaux — Country Space (2008 vs 1998)
 
-> **English summary** — Social network analysis of the *Country Space* (a country-similarity network built from export product baskets — economic-complexity data). Built with Python / NetworkX for a graduate "Network Analysis" course. Covers descriptive network statistics, degree/strength distributions, four centrality measures, small-world index (Neal, 2017), a Louvain community detection, a robustness analysis via the Fiedler value and minimum spanning tree, a **MRQAP** regression comparing the 2008 and 1998 networks, and a deep-dive on South Korea's position in the network. See the [full notebook](notebooks/network-analysis-country-space.ipynb) and the [key results](#résultats-clés) below.
+> **English summary** : Social network analysis of the *Country Space* (a country-similarity network built from export product baskets, economic-complexity data). Built with Python / NetworkX for a graduate "Network Analysis" course. Covers descriptive network statistics, degree/strength distributions, four centrality measures, small-world index (Neal, 2017), a Louvain community detection, a robustness analysis via the Fiedler value and minimum spanning tree, a **MRQAP** regression comparing the 2008 and 1998 networks, and a deep-dive on South Korea's position in the network. See the [full notebook](notebooks/network-analysis-country-space.ipynb) and the [key results](#résultats-clés) below.
 
-Projet réalisé dans le cadre d'un devoir universitaire d'**Analyse de réseaux** (Master). L'énoncé ([docs/Devoir Analyse de Réseau.pdf](<docs/Devoir Analyse de Réseau.pdf>)) demandait d'étudier le réseau attribué dans son ensemble, puis la position d'un pays donné (ici la **Corée du Sud**) au sein de ce réseau — ce README et le notebook suivent cette même structure en deux parties.
+Projet réalisé dans le cadre d'un devoir universitaire d'**Analyse de réseaux** (Master). L'énoncé ([docs/Devoir Analyse de Réseau.pdf](<docs/Devoir Analyse de Réseau.pdf>)) demandait d'étudier le réseau attribué dans son ensemble, puis la position d'un pays donné (ici la **Corée du Sud**) au sein de ce réseau. Ce README et le notebook suivent cette même structure en deux parties.
 
 ## Sommaire
 
@@ -19,10 +19,10 @@ Projet réalisé dans le cadre d'un devoir universitaire d'**Analyse de réseaux
 
 ## Le jeu de données
 
-Le **Country Space** est un réseau de similarité entre pays, construit à partir de la proximité de leurs paniers de produits exportés (dans l'esprit de l'*Atlas of Economic Complexity* — le poids d'un lien entre deux pays est d'autant plus élevé que leurs exportations se ressemblent). Les données sont dérivées de la base **BACI** (CEPII) et fournies sous forme de matrices carrées, symétriques, à diagonale nulle (réseau non orienté, pas d'auto-boucle) :
+Le **Country Space** est un réseau de similarité entre pays, construit à partir de la proximité de leurs paniers de produits exportés (dans l'esprit de l'*Atlas of Economic Complexity*, le poids d'un lien entre deux pays est d'autant plus élevé que leurs exportations se ressemblent). Les données sont dérivées de la base **BACI** (CEPII) et fournies sous forme de matrices carrées, symétriques, à diagonale nulle (réseau non orienté, pas d'auto-boucle) :
 
-- [`data/Country_Space_2008.csv`](data/Country_Space_2008.csv) — 190 pays
-- [`data/Country_Space_1998.csv`](data/Country_Space_1998.csv) — 167 pays
+- [`data/Country_Space_2008.csv`](data/Country_Space_2008.csv) - 190 pays
+- [`data/Country_Space_1998.csv`](data/Country_Space_1998.csv) - 167 pays
 
 ## Méthodologie
 
@@ -33,7 +33,7 @@ Le **Country Space** est un réseau de similarité entre pays, construit à part
 4. Centralisation du réseau (concentration autour de quelques nœuds vs réseau dispersé)
 5. Acteurs centraux et périphériques : centralité de degré, proximité (closeness), intermédiarité (betweenness), vecteur propre (eigenvector), charge (load)
 6. Test de propriété "petit-monde" via le **Small-World Index** de Neal (2017)
-7. Comparaison structurelle avec le réseau **10 ans plus tôt (1998)**, y compris une régression **MRQAP** (Multiple Regression Quadratic Assignment Procedure — approche manuelle par permutations puis via la librairie [mrqap-python](https://github.com/lisette-espin/mrqap-python))
+7. Comparaison structurelle avec le réseau **10 ans plus tôt (1998)**, y compris une régression **MRQAP** (Multiple Regression Quadratic Assignment Procedure, approche manuelle par permutations puis via la librairie [mrqap-python](https://github.com/lisette-espin/mrqap-python))
 8. Robustesse du réseau via la **valeur de Fiedler** (connectivité algébrique, 2ᵉ valeur propre du Laplacien) et son **arbre couvrant minimal**
 
 **II — Position d'un pays : la Corée du Sud**
@@ -54,7 +54,7 @@ Le **Country Space** est un réseau de similarité entre pays, construit à part
 
 ## Focus : la Corée du Sud
 
-- Centralité de la Corée par rapport aux autres pays (percentile, plus la valeur est basse plus le pays est central) : **proximité — top 7 %**, **degré — top 11 %**, vecteur propre — top 22 %, charge — top 26 %, intermédiarité — top 26 % → un acteur **bien inséré et rapidement joignable**, mais qui joue moins un rôle de "pont" entre pays éloignés
+- Centralité de la Corée par rapport aux autres pays (percentile, plus la valeur est basse plus le pays est central) : **proximité : top 7 %**, **degré : top 11 %**, vecteur propre : top 22 %, charge : top 26 %, intermédiarité : top 26 % → un acteur **bien inséré et rapidement joignable**, mais qui joue moins un rôle de "pont" entre pays éloignés
 - Ses voisins les plus proches en structure d'exportation (poids de similarité) : Bahamas, Mali, Eswatini, îles Marshall, Turkménistan...
 - Elle appartient à la plus grande communauté détectée par Louvain (**91 pays sur 190**), regroupant des économies aux profils d'exportation diversifiés
 - Distance pondérée jusqu'aux États-Unis : **2 sauts** (Corée → Géorgie → États-Unis), longueur cumulée ≈ 1,66
@@ -102,8 +102,8 @@ Network-Analysis/
 │   ├── network-analysis-country-space.py      # Équivalent script de l'analyse
 │   └── libs/                # Librairie mrqap-python vendorisée (régression QAP)
 ├── data/                    # Matrices de similarité Country Space (2008 / 1998)
-├── figures/                 # Graphiques générés — quelques images clés suivies, le reste gitignoré
-├── tables/                  # Tableaux de résultats générés (centralités, MRQAP, clusters...) — gitignoré
+├── figures/                 # Graphiques générés, quelques images clés suivies, le reste gitignoré
+├── tables/                  # Tableaux de résultats générés (centralités, MRQAP, clusters...), gitignoré
 ├── docs/
 │   ├── Devoir Analyse de Réseau.pdf   # Énoncé du devoir
 │   └── Network Analysis.pdf           # Export PDF complet du notebook exécuté
